@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+<button type="button" onclick="loadDoc()">Request data</button>
+<p id="demo"></p>
+
+<form method="post">  
+   <input type="text" id="fname"  name="firstname" placeholder="firstname"/> <br/>  
+  <input type="text" name="lastname" id="lname" placeholder="lastname">
+  <button  onclick="result()" >
+    send
+  </button>
+  </form>  
+
+<script>
+
+
+const xhttp = new XMLHttpRequest();
+
+  function result(){
+      event.preventDefault()
+      var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "content": [
+    {
+      "empId": "",
+      "firstname": "any",
+      "lastname":"any"
+    }
+  ]
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers:{
+    accept:'application/json',
+  },
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://corridor.cloud.wavemakeronline.com/EmployeesAPI/services/HRAPI/Employee", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+}
+    
+
+
+
+    
+
+function loadDoc() {
+ 
+  xhttp.onload = function() {
+  const obj	=JSON.parse(this.responseText);
+  console.log(obj);
+  const content =obj.content;
+  
+
+
+  var div=document.createElement("div");
+  div.className="container";
+  document.body.appendChild(div);
+
+   for (let index = 0; index < content.length; index++) {  
+    
+    
+    let fn =document.createElement("p");
+    fn.innerHTML = content[index].firstname;
+    div.appendChild(fn);
+
+    let ln =document.createElement("p");
+    ln.innerHTML = content[index].lastname;
+    div.appendChild(ln);
+
+    let strt =document.createElement("p");
+    strt.innerHTML = content[index].street;
+    div.appendChild(strt);
+
+    let city =document.createElement("p");
+    city.innerHTML = content[index].city;
+    div.appendChild(city);
+
+    let state =document.createElement("p");
+    state.innerHTML = content[index].state;
+    div.appendChild(state);
+
+    let img=document.createElement("img");
+    img.className="image";
+    img.src=content[index].picurl;
+    div.appendChild(img)
+}
+  }
+
+  xhttp.open("GET", "http://corridor.cloud.wavemakeronline.com/EmployeesAPI/services/HRAPI/Employee");
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
