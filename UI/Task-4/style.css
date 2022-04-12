@@ -1,0 +1,35 @@
+.container{
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    flex-wrap:wrap;
+}
+
+.colorbox {
+    margin: 10px;
+    border: 1px solid darkgrey;
+    /* justify-content: center; */
+    /* align-items: center; */
+    padding: 10px;
+    box-shadow: 1px 2px 10px;
+    background-color: aliceblue;
+}
+.image {
+    border-radius: 50%;
+}
+img{
+    border:1px solid black;
+}
+img:hover{
+    width:150px;
+    transition: 0.2s;
+    cursor:pointer;
+}
+
+.text:hover{
+    background-color: rgba(244, 228, 240, 0.651);
+    transition: 0.5s;
+    cursor: pointer;
+    border-radius: 50px;
+    
+}
