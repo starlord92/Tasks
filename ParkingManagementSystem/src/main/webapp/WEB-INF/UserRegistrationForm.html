@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>User Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/modernizr-2.6.2.min.js"></script>  
+    <style>
+    #toast {
+    visibility: hidden;
+    max-width: 50px;
+    height: 50px;
+    /*margin-left: -125px;*/
+    margin: auto;
+    background-color: #306844;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+
+    position: fixed;
+    z-index: 1;
+    left: 0;right:0;
+    bottom: 30px;
+    font-size: 17px;
+    white-space: nowrap;
+}
+#toast #img{
+	width: 50px;
+	height: 50px;
+    
+    float: left;
+    
+    padding-top: 16px;
+    padding-bottom: 16px;
+    
+    box-sizing: border-box;
+
+    
+    background-color: #2c4c3b;
+    color: #fff;
+}
+#toast #desc{
+
+    
+    color: #fff;
+   
+    padding: 16px;
+    
+    overflow: hidden;
+	white-space: nowrap;
+}
+
+#toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+
+#toast2 {
+    visibility: hidden;
+    max-width: 50px;
+    height: 50px;
+    /*margin-left: -125px;*/
+    margin: auto;
+    background-color: #d9534f;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+
+    position: fixed;
+    z-index: 1;
+    left: 0;right:0;
+    bottom: 30px;
+    font-size: 17px;
+    white-space: nowrap;
+}
+#toast2 #img2{
+	width: 50px;
+	height: 50px;
+    
+    float: left;
+    
+    padding-top: 16px;
+    padding-bottom: 16px;
+    
+    box-sizing: border-box;
+
+    
+    background-color: #111;
+    color: #fff;
+}
+#toast2 #desc{
+
+    
+    color: #fff;
+   
+    padding: 16px;
+    
+    overflow: hidden;
+	white-space: nowrap;
+}
+
+#toast2.show2 {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes expand {
+    from {min-width: 50px} 
+    to {min-width: 350px}
+}
+
+@keyframes expand {
+    from {min-width: 50px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes stay {
+    from {min-width: 350px} 
+    to {min-width: 350px}
+}
+
+@keyframes stay {
+    from {min-width: 350px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes shrink {
+    from {min-width: 350px;} 
+    to {min-width: 50px;}
+}
+
+@keyframes shrink {
+    from {min-width: 350px;} 
+    to {min-width: 50px;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 60px; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 60px; opacity: 0;}
+}
+      </style>   
+  </head>
+  <body>
+    <div id="colorlib-page">
+      <a class="js-colorlib-nav-toggle colorlib-nav-toggle">
+        <i></i>
+      </a>
+      <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+        <h1 id="colorlib-logo"></h1>
+        <nav id="colorlib-main-menu" role="navigation">
+          <ul>
+            <li>
+              <a href="index.html">Dashboard</a>
+            </li>
+            <li class="colorlib-active">
+              <a href="UserRegistrationForm.html">User Registration</a>
+            </li>
+            <li>
+              <a href="user_details.html">Manage Users</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <div id="colorlib-main">
+        <div class="colorlib-contact">
+          <div class="colorlib-narrow-content">
+            <div class="row">
+              <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                <h2 class="colorlib-heading">User Registration Form</h2>
+              </div>
+            </div>
+            <div class="row">
+              <br>
+              <br>
+<!--              <div class="col-md-5">-->
+<!--                <br>-->
+<!--                <br>-->
+<!--                <br>-->
+<!--                <br>-->
+<!--                <img src="https://media.istockphoto.com/photos/key-to-success-picture-id172169551?b=1&k=20&m=172169551&s=170667a&w=0&h=h5i82IFuqMWcHKfhxB_sk0RZo38kaczgcd3mMD8JxAM=" width="400" height="500" />-->
+<!--              </div>-->
+             
+<div class="col-md-1"></div>
+<div class="col-md-6 col-md-push-2">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
+                    <form name="myForm" method="post">
+                      <div class="form-group"> &nbsp;&nbsp; <label>Car Number</label>
+                        <input type="text" minlength="8" maxlength="10" class="form-control" id="car_number" name="car_number" placeholder="Enter Car Number" required="required">
+                      </div>
+                      <div class="form-group"> &nbsp;&nbsp; <label>Name :</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" required="required">
+                      </div>
+                      <div class="form-group"> &nbsp;&nbsp; <label>DOB :</label>
+                        <input type="date" class="form-control" id="dob" name="dob" required="required">
+                      </div>
+                      <div class="form-group"> &nbsp;&nbsp; <label>Email ID :</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email ID" required="required">
+                      </div>
+                      <div class="form-group"> &nbsp;&nbsp; <label>Gender :</label>
+                        <select class="form-control" name="gender" id="gender" required="required">
+                          <option value="">Select Your Gender</option>
+                          <option>Male</option>
+                          <option>Female</option>
+                          <option>Others</option>
+                        </select>
+                      </div>
+                      <div class="form-group"> &nbsp;&nbsp; <label>Phone No :</label>
+                        <input minlength="10" maxlength="10" type="text" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone No" required="required" >
+                      </div>
+                      <div class="form-group"> &nbsp;&nbsp; <label>Address :</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Enter Your Address" required="required">
+                      </div>
+                      <div class="form-group">
+                        <!-- <input type="button" value="submit" onclick="storage();insert();" class="btn btn-success btn-md" ></input> -->
+                        <input type="button" value="Submit" onclick="storage();insert();" class="btn btn-success btn-md"></button>
+                       
+                      </div>
+                     </form>
+                    <div id="toast"><div id="img"><i class="fa-solid fa-check"></i></div><div id="desc">Registered Successfully!</div></div>
+                    <div id="toast2"><div id="img2"><i class="fa-solid fa-brake-warning"></i></div><div id="desc">All Fields must be filled!</div></div>
+                    
+                  </div>
+                </div>
+              </div>
+             
+           
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/sticky-kit.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script> 
+    <script src="js/jquery.countTo.js"></script> 
+    <script src="js/main.js"></script>
+    
+
+
+
+
+  </body>
+  <script>
+   function storage() {
+      const name = document.getElementById("name").value;
+      const car_number = document.getElementById("car_number").value;
+      localStorage.setItem("NAME", name);
+      localStorage.setItem("USERID", car_number);
+      return;
+    }
+  </script>
+  <script>
+    async function insert() {
+      var x1 = document.forms["myForm"]["car_number"].value;
+      var x2 = document.forms["myForm"]["name"].value;
+      var x3 = document.forms["myForm"]["dob"].value;
+      var x4 = document.forms["myForm"]["email"].value;
+      var x5 = document.forms["myForm"]["gender"].value;
+      var x6 = document.forms["myForm"]["phone"].value;
+      var x7 = document.forms["myForm"]["address"].value;
+      if (x1 == "" || x2 == "" || x3 == "" || x4 == "" || x5 == "" || x6 == "" || x7 == "") {
+        var x = document.getElementById("toast2")
+        x.className = "show2";
+        setTimeout(function(){ x.className = x.className.replace("show2", ""); }, 3000);
+      return false;
+    }
+    else{
+      var id = document.getElementById("car_number").value;
+      var name = document.getElementById("name").value;
+      var dob = document.getElementById("dob").value;
+      var email = document.getElementById("email").value;
+      var gender = document.getElementById("gender").value;
+      var phone = document.getElementById("phone").value;
+      var address = document.getElementById("address").value;
+      let data = {
+        car_number: id,
+        name: name,
+        dob: dob,
+        email: email,
+        gender: gender,
+        phone: phone,
+        address: address
+      };
+
+      console.log(data)
+      try {
+        await fetch("http://localhost:8080/ParkingSlot2/create", {
+          method: 'POST',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+            'mode': 'no-cors',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }).then(response => response.json()).then(data => console.log(data));
+        var x = document.getElementById("toast")
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        window.setTimeout(function() {
+         window.location.href = 'Book_parking.html';
+           }, 3000);
+
+       
+          
+       
+      } catch (error) {
+        var x = document.getElementById("toast2")
+    x.className = "show2";
+    setTimeout(function(){ x.className = x.className.replace("show2", ""); }, 3000);
+      }
+    }
+  }
+
+
+
+
+  
+
+
+    
+  </script>
+</html>

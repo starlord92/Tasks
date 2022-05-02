@@ -1,0 +1,452 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Book Parking</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="" />
+        <!-- Facebook and Twitter integration -->
+        <meta property="og:title" content="" />
+        <meta property="og:image" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:image" content="" />
+        <meta name="twitter:url" content="" />
+        <meta name="twitter:card" content="" />
+        <link rel="shortcut icon" href="favicon.ico">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="css/animate.css">
+        <!-- Icomoon Icon Fonts-->
+        <link rel="stylesheet" href="css/icomoon.css">
+        <!-- Bootstrap  -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <!-- Flexslider  -->
+        <link rel="stylesheet" href="css/flexslider.css">
+        <!-- Flaticons  -->
+        <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+        <!-- Theme style  -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Modernizr JS -->
+        <script src="js/modernizr-2.6.2.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.js"></script>
+    </head>
+    <style>
+        #toast {
+            visibility: hidden;
+            max-width: 50px;
+            height: 50px;
+            /*margin-left: -125px;*/
+            margin: auto;
+            background-color: #306844;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            right: 0;
+            bottom: 30px;
+            font-size: 17px;
+            white-space: nowrap;
+        }
+
+        #toast #img {
+            width: 50px;
+            height: 50px;
+            float: left;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            box-sizing: border-box;
+            background-color: #2c4c3b;
+            color: #fff;
+        }
+
+        #toast #desc {
+            color: #fff;
+            padding: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #toast.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+        }
+
+        #toast2 {
+            visibility: hidden;
+            max-width: 50px;
+            height: 50px;
+            /*margin-left: -125px;*/
+            margin: auto;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            right: 0;
+            bottom: 30px;
+            font-size: 17px;
+            white-space: nowrap;
+        }
+
+        #toast2 #img2 {
+            width: 50px;
+            height: 50px;
+            float: left;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            box-sizing: border-box;
+            background-color: #111;
+            color: #fff;
+        }
+
+        #toast2 #desc {
+            color: #fff;
+            padding: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #toast2.show2 {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, expand 0.5s 0.5s, stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+        }
+
+        @-webkit-keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes expand {
+            from {
+                min-width: 50px
+            }
+
+            to {
+                min-width: 350px
+            }
+        }
+
+        @keyframes expand {
+            from {
+                min-width: 50px
+            }
+
+            to {
+                min-width: 350px
+            }
+        }
+
+        @-webkit-keyframes stay {
+            from {
+                min-width: 350px
+            }
+
+            to {
+                min-width: 350px
+            }
+        }
+
+        @keyframes stay {
+            from {
+                min-width: 350px
+            }
+
+            to {
+                min-width: 350px
+            }
+        }
+
+        @-webkit-keyframes shrink {
+            from {
+                min-width: 350px;
+            }
+
+            to {
+                min-width: 50px;
+            }
+        }
+
+        @keyframes shrink {
+            from {
+                min-width: 350px;
+            }
+
+            to {
+                min-width: 50px;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 60px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 60px;
+                opacity: 0;
+            }
+        }
+    </style>
+    </script>
+    <body>
+        <div id="colorlib-page">
+            <a class="js-colorlib-nav-toggle colorlib-nav-toggle">
+                <i></i>
+            </a>
+            <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+                <h1 id="colorlib-logo"></h1>
+                <nav id="colorlib-main-menu" role="navigation">
+                    <ul>
+                        <li>
+                            <a href="index.html">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="user_details.html">Manage Users</a>
+                        </li>
+                        <li class="colorlib-active">
+                            <a href="bookParking">Book Parking</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <div id="colorlib-main">
+                <div class="colorlib-contact">
+                    <div class="colorlib-narrow-content">
+                        <div class="row">
+                            <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                                <h2 class="colorlib-heading">Book Parking</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <br>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-6 col-md-push-2">
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
+                                        <form method="post">
+                                            <div class="form-group"> &nbsp;&nbsp; <label>User Name</label>
+                                                <input type="text" class="form-control" id="userName" required />
+                                            </div>
+                                            <script>
+                                                window.addEventListener('load', () => {
+                                                    const un = localStorage.getItem('UN');
+                                                    const cn = localStorage.getItem('CN');
+                                                    document.getElementById('userName').value = un;
+                                                    document.getElementById('carNumber').value = cn;
+                                                })
+                                            </script>
+                                            <div class="form-group"> &nbsp;&nbsp; <label>Car Number</label>
+                                                <input type="id" class="form-control" name="car_number" id="carNumber" required="required" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="hidden" class="form-control" name="id" id="slotid">
+                                            </div>
+                                            <div class="form-group"> &nbsp;&nbsp; <label>Select Date :</label>
+                                                <input type="date" class="form-control" name="date" id="date" required="required">
+                                            </div>
+                                            <div class="form-group"> &nbsp;&nbsp; <label>Select Parking Start Time :</label>
+                                                <select name="stime" id="stime" required="required" class="form-control">
+                                                    <option value="">--Select Time--</option>
+                                                    <option>06:00</option>
+                                                    <option>07:00</option>
+                                                    <option>08:00</option>
+                                                    <option>09:00</option>
+                                                    <option>10:00</option>
+                                                    <option>11:00</option>
+                                                    <option>12:00</option>
+                                                    <option>13:00</option>
+                                                    <option>14:00</option>
+                                                    <option>15:00</option>
+                                                    <option>16:00</option>
+                                                    <option>17:00</option>
+                                                    <option>18:00</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group"> &nbsp;&nbsp; <label>Enter Parking Hours :</label>
+                                                <select name="phrs" id="meeting" class="form-control" onchange="sum();cal()" required="required">
+                                                    <option value="">--Select Hours--</option>
+                                                    <option>1:00</option>
+                                                    <option>2:00</option>
+                                                    <option>3:00</option>
+                                                    <option>4:00</option>
+                                                    <option>5:00</option>
+                                                    <option>6:00</option>
+                                                    <option>7:00</option>
+                                                    <option>8:00</option>
+                                                    <option>9:00</option>
+                                                    <option>10:00</option>
+                                                    <option>11:00</option>
+                                                    <option>12:00</option>
+                                                </select>
+                                            </div>
+                                            <script>
+                                                function sum() {
+                                                    var stime = document.getElementById("stime").value;
+                                                    var hrs = document.getElementById("meeting").value;
+                                                    var hour = 0;
+                                                    var splitTime1 = stime.split(':');
+                                                    var splitTime2 = hrs.split(':');
+                                                    hour = parseInt(splitTime1[0]) + parseInt(splitTime2[0]);
+                                                    document.getElementById("etime").value = hour + ':' + 0 + 0;
+                                                }
+                                            </script>
+                                            <div class="form-group"> &nbsp;&nbsp; <label>Select Parking End Time :</label>
+                                                <input type="text" name="etime" id="etime" required="required" class="form-control" readonly />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Cost For 1 Hour :</label>
+                                                <input type="number" class="form-control" name="cost" class="form-control" id="cost" value="20" readonly />
+                                            </div>
+                                            <div class="form-group"> &nbsp;&nbsp; <label>Parking Cost :</label>
+                                                <input type="number" class="form-control" name="cost" class="form-control" id="calcost" readonly />
+                                            </div>
+                                            <script>
+                                                function cal() {
+                                                    var hrs = document.getElementById("meeting").value;
+                                                    var splitTime = hrs.split(':');
+                                                    var cost = document.getElementById("cost").value;
+                                                    var pcost = parseInt(splitTime[0]) * cost;
+                                                    document.getElementById("calcost").value = pcost;
+                                                }
+                                            </script>
+                                            <div class="form-group">
+                                                <button type="button" onclick="bookstorage();push();" class="btn btn-success btn-md">Select Slot></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="toast">
+                                    <div id="img">
+                                        <i class="fa-solid fa-hexagon-check"></i>
+                                    </div>
+                                    <div id="desc">Entered Booking Successfully!</div>
+                                </div>
+                                <div id="toast2">
+                                    <div id="img2">
+                                        <i class="fa-solid fa-brake-warning"></i>
+                                    </div>
+                                    <div id="desc"> Recheck Booking Details</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.easing.1.3.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.waypoints.min.js"></script>
+        <script src="js/jquery.flexslider-min.js"></script>
+        <script src="js/sticky-kit.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.countTo.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+    <script>
+        function bookstorage() {
+            const date = document.getElementById("date").value;
+            const stime = document.getElementById("stime").value;
+            const meeting = document.getElementById("meeting").value;
+            const etime = document.getElementById("etime").value;
+            const cost = document.getElementById("calcost").value;
+            localStorage.setItem("DATE", date);
+            localStorage.setItem("STIME", stime);
+            localStorage.setItem("MEETING", meeting);
+            localStorage.setItem("ETIME", etime);
+            localStorage.setItem("COST", cost);
+            var x = document.getElementById("toast")
+            x.className = "show";
+            setTimeout(function() {
+                x.className = x.className.replace("show", "");
+            }, 3000);
+            window.setTimeout(function() {
+                window.location.href = 'slot1.html';
+            }, 3000);
+            return;
+        }
+        async function push() {
+            const un = localStorage.getItem('UN');
+            const cn = localStorage.getItem('CN');
+            var date = document.getElementById("date").value;
+            var stime = document.getElementById("stime").value;
+            var meeting = document.getElementById("meeting").value;
+            var etime = document.getElementById("etime").value;
+            var cost = document.getElementById("cost").value;
+            let data = {
+                user_name: un,
+                car_number: cn,
+                slot_id: slotid,
+                date: date,
+                start_time: stime,
+                parking_hrs: meeting,
+                endtime: etime,
+                parking_cost: cost
+            };
+            console.log(data)
+            await fetch("http://localhost:8080/ParkingSlot2/push", {
+                method: 'POST',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                    'mode': 'no-cors',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(response => response.json()).then(data => console.log(data));
+        }
+    </script>
+</html>
